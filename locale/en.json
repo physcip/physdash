@@ -1,0 +1,7 @@
+{
+	"link-register" : "Create account",
+	"link-resetpw" : "Reset password",
+	"welcome" : "Welcome to the Physics department's computer lab!",
+	"basic-information" : "Every student with a major or minor in physics is eligible to use this computer lab. To do so, you will first need to create a computer pool account. As a prerequisite, you need a university TIK account.",
+	"additional-information" : "If you need a special activation (e.g. because physics is your minor only) or if you have any questions, feel free to contact the computer lab administrators in the room next door or email us at <span class=\"email\">support@physcip.uni-stuttgart.de</span>"
+}

@@ -1,0 +1,64 @@
+body {
+	margin: 0;
+	font-family: Helvetica, sans-serif;
+}
+
+/*
+ * Header
+ */
+#header {
+	height: 60px;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: linear-gradient(to bottom left, #00beff, #004191);
+}
+
+#header #cip_logo {
+	display: inline-block;
+	height: 50px;
+	padding: 5px;
+	float: left;
+}
+
+#header ul {
+	list-style-type: none;
+	display: inline-block;
+	margin: 0;
+	line-height: 60px;
+}
+
+#header li {
+	display: inline-block;
+	color: #ffffff;
+	margin-right:20px;
+	cursor: pointer;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+#header #langflags {
+	float: right;
+	margin: 0;
+	margin-top: 10px;
+}
+
+#header #langflags li img {
+	border: 2px solid #232323;
+	border-radius: 3px;
+	height: 30px;
+}
+
+/*
+ * Content
+ */
+#content {
+	width: 70vw;
+	margin: 0 auto;
+	margin-top: 80px;
+	color: #232323;
+}
+
+#content .email {
+	color: #004191;
+}
