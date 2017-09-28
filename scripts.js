@@ -69,7 +69,6 @@ function loadContentPage(page) {
 
 	req.onload = function() {
 		if (req.status == 200) {
-			console.log(req.responseText);
 			document.getElementById("content").innerHTML = req.responseText;
 			updateLocale();
 		}
