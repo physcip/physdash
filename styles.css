@@ -7,8 +7,9 @@ body {
  * Header
  */
 #header {
-	height: 60px;
-	position: fixed;
+	display: flex;
+	justify-content: left;
+	align-items: center;
 	top: 0;
 	width: 100%;
 	background: linear-gradient(to bottom left, #00beff, #004191);
@@ -17,15 +18,15 @@ body {
 #header #cip_logo {
 	display: inline-block;
 	height: 50px;
-	padding: 5px;
-	float: left;
+	padding: 7px;
+	cursor: pointer;
 }
 
 #header ul {
 	list-style-type: none;
 	display: inline-block;
 	margin: 0;
-	line-height: 60px;
+	padding-top: 5px;
 }
 
 #header li {
@@ -40,7 +41,7 @@ body {
 #header #langflags {
 	float: right;
 	margin: 0;
-	margin-top: 10px;
+	margin-left: auto;
 }
 
 #header #langflags li img {
@@ -55,7 +56,6 @@ body {
 #content {
 	width: 70vw;
 	margin: 0 auto;
-	margin-top: 80px;
 	color: #232323;
 }
 

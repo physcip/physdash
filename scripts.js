@@ -71,10 +71,37 @@ function loadContentPage(page) {
 		if (req.status == 200) {
 			document.getElementById("content").innerHTML = req.responseText;
 			updateLocale();
+			addContentLinks();
+			updateContentSelectors(page);
 		}
 	};
 
 	req.send();
+}
+
+// Underline correct `content-selector` element in header
+function updateContentSelectors(page) {
+	var selectors = document.getElementsByClassName("content-selector");
+
+	// Fake thick underline with border
+	Array.from(selectors).forEach(function(selector) {
+		if (selector.dataset.contentpage == page) {
+			selector.style["border-bottom"] = "3px solid white";
+		} else {
+			selector.style["border-bottom"] = "3px solid transparent";
+		}
+	});
+}
+
+// Add .onclick functions to all `content-link` class elements that loads data-contentpage page
+function addContentLinks() {
+	var links = document.getElementsByClassName("content-link");
+
+	Array.from(links).forEach(function(link) {
+		link.onclick = function() {
+			loadContentPage(link.dataset.contentpage);
+		};
+	});
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {

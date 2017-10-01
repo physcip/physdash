@@ -1,11 +1,9 @@
 {
-	"link-register" : "Account Erstellen",
-	"link-resetpw" : "Passwort Zurücksetzen",
+	"register" : "Account Erstellen",
+	"resetpw" : "Passwort Zurücksetzen",
 	"welcome" : "Willkommen im CIP-Pool Physik!",
 	"basic-information" : "Jeder Student, der Physik als Haupt- oder Nebenfach studiert, kann diesen Computerpool nutzen. Dazu muss allerdings erst ein Account im Pool erstellt werden. Du benötigst dafür einen Account beim TIK.",
 	"additional-information" : "Falls du eine gesonderte Freischaltung brauchst (z.B. weil du Nebenfächler bist oder den Studiengang gewechselt hast) oder sonst noch Fragen hast, wende dich bitte an uns Administratoren im Raum nebenan oder schreibe uns eine Mail an <span class=\"email\">support@physcip.uni-stuttgart.de</span>",
-	"home-action-register-head" : "Account Erstellen",
-	"home-action-resetpw-head" : "Passwort Zurücksetzen",
 	"home-action-register-content" : "Du hast noch keinen Account im CIP-Pool? Als Physikstudent kannst du dir hier einen neuen Account anlegen.",
 	"home-action-resetpw-content" : "Passwort vergessen? Kein Problem, mit deinem TIK-Account-Passwort kannst du dein CIP-Pool-Passwort zurücksetzen."
 }
