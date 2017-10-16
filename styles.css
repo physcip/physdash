@@ -11,8 +11,8 @@ body {
 	justify-content: left;
 	align-items: center;
 	top: 0;
-	width: 100%;
-	background: linear-gradient(to bottom left, #00beff, #004191);
+	width: 100vw;
+	background: linear-gradient(to top right, #00beff, #004191);
 }
 
 #header #cip_logo {
@@ -71,6 +71,7 @@ body {
 
 #content .home-action-circle {
 	display: block;
+	min-width: 350px;
 	width: 350px;
 	height: 350px;
 	background: #00beff;
@@ -116,4 +117,59 @@ body {
 
 #content .home-action .rightarrow-container img {
 	height: 30px;
+}
+
+#content table td {
+	text-align: right;
+	padding-right: 20px;
+	line-height: 40px;
+}
+
+#content input[type="text"], #content input[type="password"] {
+	padding: 4px;
+	font-size: 15px;
+	border: 2px solid #000000;
+}
+
+#content input[type="text"]:focus, #content input[type="password"]:focus {
+	border: 2px solid #00beff;
+}
+
+#content .form-element input[type="text"], #content .form-element input[type="password"] {
+	width: 250px;
+}
+
+#content .form-element {
+	position: relative;
+	padding: 20px;
+	background: #e0e0e0;
+	width: 600px;
+	margin: 0 auto;
+	padding-bottom: 60px;
+}
+
+#content .form-element button {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	text-transform: uppercase;
+	padding: 14px 30px;
+	background: #004191;
+	border: none;
+	color: #ffffff;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+#content .form-element button:hover {
+	background: #323232;
+}
+
+#content .form-element .form-element-header {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#content .form-element .form-element-explanation {
+	margin-bottom: 10px;
 }
