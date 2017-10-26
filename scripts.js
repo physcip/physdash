@@ -42,7 +42,7 @@ function onLocaleChange() {
 	updateLocale();
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
 	// Load all locales
 	loadLocales(function () {
 		updateLocale();
@@ -58,6 +58,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		li.appendChild(flag);
 		li.onclick = onLocaleChange;
 		document.getElementById("langflags").appendChild(li);
+	});
+
+	// Update i18n strings when content page ist loaded
+	document.getElementById("content").addEventListener("ContentPageLoaded", function() {
+		updateLocale();
 	});
 });
 
@@ -75,9 +80,11 @@ function loadContentPage(page) {
 	req.onload = function() {
 		if (req.status == 200) {
 			document.getElementById("content").innerHTML = req.responseText;
-			updateLocale();
 			addContentLinks();
 			updateContentSelectors(page);
+
+			var event = new CustomEvent("ContentPageLoaded", { detail : { page : page } });
+			document.getElementById("content").dispatchEvent(event);
 		}
 	};
 
@@ -109,12 +116,14 @@ function addContentLinks() {
 	});
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
 	loadContentPage("home");
 });
 
-// Physreg API access
-function physreg_action(name, data, cb) {
+/*
+ * Physreg API access
+ */
+function physregAction(name, data, cb) {
 	// Encode data object as x-www-form-urlencoded
 	var data_encoded = [];
 	for (var key in data)
@@ -127,10 +136,8 @@ function physreg_action(name, data, cb) {
 
 	req.onload = function() {
 		if (req.status == 200)
-			cb(req.responseText);
+			cb(JSON.parse(req.responseText));
 	};
 
-	console.log(data_encoded.join("&"));
 	req.send(data_encoded.join("&"));
-
 }
