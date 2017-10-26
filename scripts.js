@@ -4,6 +4,7 @@
 var LOCALEIDS = ["de", "en"];
 var LOCALES = {};
 var CURRENT_LOCALE = "de";
+var PHYSREG_API_BASE = "http://localhost:8000"; // TODO
 
 // Load locales from server
 function loadLocales(cb) {
@@ -111,3 +112,25 @@ function addContentLinks() {
 document.addEventListener("DOMContentLoaded", function(event) {
 	loadContentPage("home");
 });
+
+// Physreg API access
+function physreg_action(name, data, cb) {
+	// Encode data object as x-www-form-urlencoded
+	var data_encoded = [];
+	for (var key in data)
+		data_encoded.push(encodeURIComponent(key) + "=" + encodeURIComponent(data[key]));
+
+	// Send POST request to physreg API, call callback with response
+	var req = new XMLHttpRequest();
+	req.open("POST", PHYSREG_API_BASE + "/register.php?action=" + name, true);
+	req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+
+	req.onload = function() {
+		if (req.status == 200)
+			cb(req.responseText);
+	};
+
+	console.log(data_encoded.join("&"));
+	req.send(data_encoded.join("&"));
+
+}
