@@ -32,8 +32,14 @@ function updateLocale() {
 	var elem = document.getElementsByTagName("*");
 
 	for (var i = 0; i < elem.length; ++i) {
-		if ("dataset" in elem[i] && "i18n" in elem[i].dataset)
-			elem[i].innerHTML = LOCALES[CURRENT_LOCALE][elem[i].dataset.i18n];
+		if ("dataset" in elem[i] && "i18n" in elem[i].dataset) {
+			// Input elements: Translate button value
+			if (elem[i].tagName.toLowerCase() == "input")
+				elem[i].value = LOCALES[CURRENT_LOCALE][elem[i].dataset.i18n];
+			// div, span, li, td, ...: Just translate innerHTML content
+			else
+				elem[i].innerHTML = LOCALES[CURRENT_LOCALE][elem[i].dataset.i18n];
+		}
 	}
 }
 
@@ -123,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
 /*
  * Physreg API access
  */
-function physregAction(name, data, cb) {
+function physregAction(name, data, cb, cbTimeout) {
 	// Encode data object as x-www-form-urlencoded
 	var data_encoded = [];
 	for (var key in data)
@@ -133,11 +139,55 @@ function physregAction(name, data, cb) {
 	var req = new XMLHttpRequest();
 	req.open("POST", PHYSREG_API_BASE + "/register.php?action=" + name, true);
 	req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+	req.timeout = 2000;
 
 	req.onload = function() {
 		if (req.status == 200)
 			cb(JSON.parse(req.responseText));
 	};
 
+	req.ontimeout = function() {
+		cbTimeout();
+	};
+
+	req.onreadystatechange = function() {
+		if (req.readyState == 4 && req.status != 200)
+			cbTimeout();
+	};
+
 	req.send(data_encoded.join("&"));
+}
+
+/*
+ * Loading animation
+ */
+function addLoadingAnimation(elem) {
+	var loadingDots = document.createElement("div");
+	loadingDots.classList.add("form-element-loading");
+
+	// Add three loading dots
+	for (var i = 0; i < 3; ++i)
+		loadingDots.appendChild(document.createElement("div"));
+
+	elem.appendChild(loadingDots);
+}
+
+function removeLoadingAnimation(elem) {
+	var loadingDots = elem.getElementsByClassName("form-element-loading")[0];
+	elem.removeChild(loadingDots);
+}
+
+/*
+ * Completed sections
+ */
+function makeSectionComplete(elem) {
+	var completeTick = document.createElement("div");
+	completeTick.classList.add("complete-tick");
+	completeTick.innerHTML = "&#10004;";
+
+	var completeSection = document.createElement("div");
+	completeSection.classList.add("form-element-complete");
+	completeSection.appendChild(completeTick);	
+
+	elem.appendChild(completeSection);
 }
