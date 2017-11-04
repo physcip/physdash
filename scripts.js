@@ -72,6 +72,16 @@ document.addEventListener("DOMContentLoaded", function() {
 	});
 });
 
+// Load localized string from locale JSON
+// If namespace is `null`, load from root of JSON, otherwise look inside namespace object in JSON
+function i18n(namespace, id) {
+	if (namespace === null) {
+		return LOCALES[CURRENT_LOCALE][id];
+	}
+
+	return LOCALES[CURRENT_LOCALE][namespace][id];
+}
+
 /*
  * Conent Page Management
  */
@@ -139,7 +149,7 @@ function physregAction(name, data, cb, cbTimeout) {
 	var req = new XMLHttpRequest();
 	req.open("POST", PHYSREG_API_BASE + "/register.php?action=" + name, true);
 	req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
-	req.timeout = 2000;
+	req.timeout = 3000;
 
 	req.onload = function() {
 		if (req.status == 200)
@@ -173,8 +183,9 @@ function addLoadingAnimation(elem) {
 }
 
 function removeLoadingAnimation(elem) {
-	var loadingDots = elem.getElementsByClassName("form-element-loading")[0];
-	elem.removeChild(loadingDots);
+	var loadingDots = elem.getElementsByClassName("form-element-loading");
+	if (loadingDots.length > 0)
+		elem.removeChild(loadingDots[0]);
 }
 
 /*
@@ -190,4 +201,29 @@ function makeSectionComplete(elem) {
 	completeSection.appendChild(completeTick);	
 
 	elem.appendChild(completeSection);
+}
+
+/*
+ * Error messages
+ */
+function makeSectionError(elem, message) {
+	var errorMessage = document.createElement("div");
+	errorMessage.textContent = message;
+	errorMessage.classList.add("form-element-error-message");
+
+	var errorSection = document.createElement("div");
+	errorSection.classList.add("form-element-error");
+
+	elem.appendChild(errorMessage);
+	elem.appendChild(errorSection);
+}
+
+function removeSectionError(elem) {
+	var errorSection = elem.getElementsByClassName("form-element-error");
+	if (errorSection.length > 0)
+		elem.removeChild(errorSection[0]);
+
+	var errorMessage = elem.getElementsByClassName("form-element-error-message");
+	if (errorMessage.length > 0)
+		elem.removeChild(errorMessage[0]);
 }

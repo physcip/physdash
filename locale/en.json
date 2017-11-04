@@ -10,5 +10,12 @@
 	"tik-password" : "TIK Password",
 	"tik-submit" : "Check",
 	"tik-credentials" : "TIK credentials",
-	"tik-register-explanation" : "We use your TIK account credentials to verify that you're eligible to create an account in the computer lab. This won't modfiy your TIK account."
+	"tik-register-explanation" : "We use your TIK account credentials to verify that you're eligible to create an account in the computer lab. This won't modfiy your TIK, account.",
+	"tik-error-messages" : {
+		"password" : "Your TIK account password is invalid, please try again.",
+		"input" : "Invalid input, please enter both TIK account username and password and make sure your username has the format \"stXXXXXX\" (or similar).",
+		"user" : "Invalid TIK account username. Please make sure to enter an existing username in the format \"stXXXXXX\" (or similar).",
+		"timeout" : "A timeout occured while validating your TIK credentials. If this keeps happening, please notify the computer lab administrators.",
+		"other" : "An unknown error occured. If this keeps happening, please notify the computer lab administrators. Error: "
+	}
 }
