@@ -3,7 +3,7 @@
  */
 document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("content").addEventListener("ContentPageLoaded", function(event) {
-		if (event.detail.page == "register") {
+		if (event.detail.page == "resetpw") {
 			document.getElementsByClassName("tik-form")[0].addEventListener("submit", onTIKSubmit);
 		}
 	});
