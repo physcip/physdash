@@ -4,7 +4,7 @@
 var LOCALEIDS = ["de", "en"];
 var LOCALES = {};
 var CURRENT_LOCALE = "de";
-var PHYSREG_API_BASE = "http://localhost:8000"; // TODO
+var PHYSREG_API_BASE = "https://www.physcip.uni-stuttgart.de/physreg";
 
 // Load locales from server
 function loadLocales(cb) {
