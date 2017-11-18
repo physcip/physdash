@@ -61,38 +61,37 @@ function removeSectionError(elem) {
 /*
  * TIK credentials section handler
  * Common for account registration and password reset, called from the respective
- * scripts for these content pages.
+ * scripts for these content pages. The innter function that gets returned is the
+ * callbacked to be executed when the submit button on the TIK credentials form is
+ * pressed.
  */
-function onTIKSubmit(event) {
-	// Don't actually submit the form, handle it in clientside JS instead
-	event.preventDefault();
+function onTIKSubmit(successCallback) {
+	return function(event) {
+		// Don't actually submit the form, handle it in clientside JS instead
+		event.preventDefault();
 
-	tikCredentialsElem = document.getElementsByClassName("tik-credentials")[0];
+		tikCredentialsElem = document.getElementsByClassName("tik-credentials")[0];
 
-	removeSectionError(tikCredentialsElem);
-	addLoadingAnimation(tikCredentialsElem);
+		removeSectionError(tikCredentialsElem);
+		addLoadingAnimation(tikCredentialsElem);
 
-	var username = document.getElementsByClassName("tik-form-username")[0].value;
-	var password = document.getElementsByClassName("tik-form-password")[0].value;
+		var username = document.getElementsByClassName("tik-form-username")[0].value;
+		var password = document.getElementsByClassName("tik-form-password")[0].value;
 
-	physregAction("checkuser", {
-		rususer : username,
-		ruspw : password
-	}, function(res) {
-		// TODO: Specify communication protocol, handle all possible error messages
-		removeLoadingAnimation(tikCredentialsElem);
-		if (res.error == false)
-			makeSectionComplete(tikCredentialsElem);
-		else if (res.errormsg == "RUS_PW_INVALID")
-			makeSectionError(tikCredentialsElem, i18n("tik-error-messages", "password"));
-		else if (res.errormsg == "PHYSCIP_INVALID_INPUT")
-			makeSectionError(tikCredentialsElem, i18n("tik-error-messages", "input"));
-		else if (res.errormsg == "RUS_USER_INVALID")
-			makeSectionError(tikCredentialsElem, i18n("tik-error-messages", "user"));
-		else
-			makeSectionError(tikCredentialsElem, i18n("tik-error-messages", "other") + res.errormsg);
-	}, function() {
-		removeLoadingAnimation(tikCredentialsElem);
-		makeSectionError(tikCredentialsElem, i18n("tik-error-messages", "timeout"));
-	});
+		physregAction("checkuser", {
+			rususer : username,
+			ruspw : password
+		}, function(res) {
+			removeLoadingAnimation(tikCredentialsElem);
+			if (res.error == false) {
+				makeSectionComplete(tikCredentialsElem);
+				successCallback();
+			} else {
+				makeSectionError(tikCredentialsElem, getPhysregErrorDescription(res.errormsg));
+			}
+		}, function() {
+			removeLoadingAnimation(tikCredentialsElem);
+			makeSectionError(tikCredentialsElem, i18n("error-messages", "timeout"));
+		});
+	}
 }

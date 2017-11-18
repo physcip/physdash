@@ -167,3 +167,27 @@ function physregAction(name, data, cb, cbTimeout) {
 
 	req.send(data_encoded.join("&"));
 }
+
+/*
+ * Physreg API error handling
+ * Get error messages from strings defined in physreg protocol (see `doc/physreg_protocol.md`)
+ * Handles all errors of type "ipcheck errors", "Common errors", "TIK errors", "Physcip errors",
+ * "createuser errors", "resetpw errors" that are the client's fault. Returns generic error message
+ * if error string wasn't found.
+ */
+function getPhysregErrorDescription(errormsg) {
+	if (errormsg == "IP_NOT_ALLOWED")
+		return i18n("error-messages", "ip");
+	else if (errormsg == "RUS_PW_INVALID")
+		return i18n("error-messages", "password");
+	else if (errormsg == "PHYSCIP_INVALID_INPUT")
+		return i18n("error-messages", "input");
+	else if (errormsg == "RUS_USER_INVALID")
+		return i18n("error-messages", "user");
+	else if (errormsg == "USER_NOT_ALLOWED")
+		return i18n("error-messages", "not-allowed");
+	else if (errormsg == "USER_ALREADY_EXISTS")
+		return i18n("error-messages", "already-exists");
+	else
+		return i18n("error-messages", "other") + res.errormsg;
+}

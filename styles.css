@@ -149,6 +149,7 @@ body {
 	width: 600px;
 	margin: 0 auto;
 	padding-bottom: 60px;
+	margin-top: 30px;
 }
 
 #content .form-element button, #content .form-element input[type="button"], #content .form-element input[type="submit"] {
@@ -179,6 +180,18 @@ body {
 
 #content .form-element .form-element-explanation {
 	margin-bottom: 10px;
+}
+
+/*
+ * Not-ready form elements
+ */
+#content .form-element .form-element-not-ready {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(200, 200, 200, 0.8);
 }
 
 /*

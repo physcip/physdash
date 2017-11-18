@@ -12,11 +12,21 @@
 	"tik-credentials" : "TIK credentials",
 	"tik-register-explanation" : "We use your TIK account credentials to verify that you're eligible to create an account in the computer lab. This won't modfiy your TIK account.",
 	"tik-resetpw-explanation" : "We use your TIK account credentials to verify your identity. The computer lab password can only be reset with the correct TIK account password. This won't modfiy your TIK account.",
-	"tik-error-messages" : {
+	"error-messages" : {
+		"ip" : "You are not allowed to access account management servers from your IP address. Please use a computer inside the computer lab. If this error occurs while you're using a computer in the lab, please notify the administrators.",
 		"password" : "Your TIK account password is invalid, please try again.",
 		"input" : "Invalid input, please enter both TIK account username and password and make sure your username has the format \"stXXXXXX\" (or similar).",
 		"user" : "Invalid TIK account username. Please make sure to enter an existing username in the format \"stXXXXXX\" (or similar).",
 		"timeout" : "A timeout occured while validating your TIK credentials. If this keeps happening, please notify the computer lab administrators.",
+		"new-passwords-mismatch" : "The two passwords don't match.",
+		"new-password-length" : "Your password is too short.",
+		"not-allowed" : "You do not appear to be a physics student. If you think you are eligible for an account anyway, please contact the computer lab administrators.",
+		"already-exists" : "You have already registered an account before. In case you forgot your password, please use \"Reset Password\". If you have problems with your account, please contact the computer lab administrators.",
 		"other" : "An unknown error occured. If this keeps happening, please notify the computer lab administrators. Error: "
-	}
+	},
+	"new-password" : "New Password",
+	"new-password-explanation" : "Choose a new password for your computer lab account, at least 6 characters",
+	"new-password-1" : "Password",
+	"new-password-2" : "Repeat Password",
+	"new-password-submit" : "Set Password"
 }
