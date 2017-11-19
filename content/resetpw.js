@@ -25,12 +25,12 @@ function onNewPasswordSubmit(event) {
 	removeSectionError(newPasswordElem);
 
 	if (password1 != password2) {
-		makeSectionError(newPasswordElem, i18n("error-messages", "new-passwords-mismatch"));
+		makeSectionError(newPasswordElem, i18n("error-messages", "passwords-mismatch"));
 		return;
 	}
 
 	if (password1.length < 6) {
-		makeSectionError(newPasswordElem, i18n("error-messages", "new-password-length"));
+		makeSectionError(newPasswordElem, i18n("error-messages", "password-length"));
 		return;
 	}
 

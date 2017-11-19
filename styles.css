@@ -119,10 +119,15 @@ body {
 	height: 30px;
 }
 
-#content table td {
-	text-align: right;
+#content table tr td {
 	padding-right: 20px;
 	line-height: 40px;
+	text-align: left;
+	vertical-align: top;
+}
+
+#content table tr td:first-child {
+	text-align: right;
 }
 
 /*
@@ -139,17 +144,16 @@ body {
 }
 
 #content .form-element input[type="text"], #content .form-element input[type="password"] {
-	width: 250px;
+	width: 300px;
 }
 
 #content .form-element {
 	position: relative;
 	padding: 20px;
 	box-shadow:inset 0px 0px 0px 2px #a0a0a0;
-	width: 600px;
-	margin: 0 auto;
+	width: 650px;
+	margin: 20px auto;
 	padding-bottom: 60px;
-	margin-top: 30px;
 }
 
 #content .form-element button, #content .form-element input[type="button"], #content .form-element input[type="submit"] {
@@ -164,7 +168,6 @@ body {
 	color: #ffffff;
 	font-size: 14px;
 	cursor: pointer;
-
 }
 
 #content .form-element button:hover, #content .form-element input[type="button"]:hover, #content .form-element input[type="submit"]:hover {
@@ -181,6 +184,31 @@ body {
 #content .form-element .form-element-explanation {
 	margin-bottom: 10px;
 }
+
+#content .form-element .form-email-component {
+	width: 130px !important;
+}
+
+#content .form-element .new-account-email-localpart {
+	text-align: right;
+}
+
+#content .form-element .new-account-locale {
+	line-height: 40px;
+}
+
+#content .form-element .new-account-locale .new-account-localebutton {
+	display: inline-block;
+	border: 3px solid #232323;
+	height: 30px;
+	line-height: 40px;
+	cursor: pointer;
+}
+
+#content .form-element .new-account-locale .new-account-localebutton-selected {
+	border: 3px solid #00beff;
+}
+
 
 /*
  * Not-ready form elements
@@ -285,4 +313,48 @@ body {
 	background: #fcf4f2;
 	color: #a6200f;
 	margin-bottom: 10px;
+}
+
+/*
+ * Success Message
+ */
+#success-message-container {
+	display: none;
+}
+
+#success-message {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(200, 200, 200, 0.6);
+}
+
+#success-message #success-dialog {
+	text-align: center;
+	padding: 30px 80px;
+	font-size: 20px;
+	background: #ffffff;
+	border: 2px solid #00a000;
+}
+
+#success-message #success-dialog-ok {
+	text-transform: uppercase;
+	padding: 14px 30px;
+	background: #004191;
+	transition: background 0.2s;
+	border: none;
+	color: #ffffff;
+	font-size: 14px;
+	cursor: pointer;
+	margin-top: 20px;
+}
+
+#success-message #success-dialog-ok:hover {
+	background: #323232;
+	transition: background 0.2s;
 }

@@ -70,6 +70,11 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("content").addEventListener("ContentPageLoaded", function() {
 		updateLocale();
 	});
+
+	// Success message ok button press callack
+	document.getElementById("success-dialog-ok").addEventListener("click", function() {
+		document.getElementById("success-message-container").style.display = "none";
+	});
 });
 
 // Load localized string from locale JSON
