@@ -5,6 +5,7 @@
 function resetpwTIKVerified() {
 	var newPasswordForm = document.getElementsByClassName("new-password")[0];
 	newPasswordForm.removeChild(newPasswordForm.getElementsByClassName("form-element-not-ready")[0]);
+	document.getElementsByClassName("new-password-1")[0].focus();
 }
 
 /*
@@ -48,6 +49,7 @@ function onNewPasswordSubmit(event) {
 		removeLoadingAnimation(newPasswordElem);
 		if (res.error == false) {
 			makeSectionComplete(newPasswordElem);
+			showSuccessMessage();
 		} else {
 			makeSectionError(newPasswordElem, getPhysregErrorDescription(res.errormsg));
 		}

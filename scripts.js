@@ -73,7 +73,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// Success message ok button press callack
 	document.getElementById("success-dialog-ok").addEventListener("click", function() {
-		document.getElementById("success-message-container").style.display = "none";
+		document.getElementById("success-message").style.visibility = "hidden";
+		loadContentPage("home");
 	});
 });
 
@@ -140,6 +141,14 @@ function addContentLinks() {
 document.addEventListener("DOMContentLoaded", function() {
 	loadContentPage("home");
 });
+
+/*
+ * Action successful message
+ */
+function showSuccessMessage() {
+	document.getElementById("success-message").style.visibility = "visible";
+	document.getElementById("success-dialog-ok").focus();
+}
 
 /*
  * Physreg API access

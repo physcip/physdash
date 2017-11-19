@@ -318,11 +318,8 @@ body {
 /*
  * Success Message
  */
-#success-message-container {
-	display: none;
-}
-
 #success-message {
+	visibility: hidden;
 	position: fixed;
 	top: 0;
 	left: 0;

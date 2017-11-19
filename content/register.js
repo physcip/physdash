@@ -4,6 +4,7 @@ function registerTIKVerified() {
 	var newAccountUsername = document.getElementsByClassName("new-account-username")[0];
 	var tikUsername = document.getElementsByClassName("tik-form-username")[0].value;
 	newAccountUsername.value = tikUsername;
+	document.getElementsByClassName("new-account-password-1")[0].focus();
 }
 
 /*
@@ -70,6 +71,7 @@ function onNewAccountSubmit(event) {
 		removeLoadingAnimation(newAccountElem);
 		if (res.error == false) {
 			makeSectionComplete(newAccountElem);
+			showSuccessMessage();
 		} else {
 			makeSectionError(newAccountElem, getPhysregErrorDescription(res.errormsg));
 		}
