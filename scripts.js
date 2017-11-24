@@ -10,7 +10,7 @@ var PHYSREG_API_BASE = "https://www.physcip.uni-stuttgart.de/physreg";
 function loadLocales(cb) {
 	LOCALEIDS.forEach(function(id) {
 		var req = new XMLHttpRequest();
-		req.open("GET", "/locale/" + id + ".json" , true);
+		req.open("GET", "locale/" + id + ".json" , true);
 
 		req.onload = function() {
 			if (req.status == 200) {
@@ -97,7 +97,7 @@ function loadContentPage(page) {
 	// Workaround: Use random token string to make
 	// sure browser doesn't cache content page
 	var token = Math.random().toString(36).substring(7);
-	req.open("GET", "/content/" + page + ".html?token=" + token, true);
+	req.open("GET", "content/" + page + ".html?token=" + token, true);
 
 	req.onload = function() {
 		if (req.status == 200) {
