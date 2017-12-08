@@ -3,7 +3,7 @@ function registerTIKVerified() {
 	newAccountForm.removeChild(newAccountForm.getElementsByClassName("form-element-not-ready")[0]);
 	var newAccountUsername = document.getElementsByClassName("new-account-username")[0];
 	var tikUsername = document.getElementsByClassName("tik-form-username")[0].value;
-	newAccountUsername.value = tikUsername;
+	newAccountUsername.value = tikUsername.toLowerCase();
 	document.getElementsByClassName("new-account-password-1")[0].focus();
 }
 
