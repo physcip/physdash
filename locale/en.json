@@ -3,7 +3,7 @@
 	"resetpw" : "Reset Password",
 	"welcome" : "Welcome to the Physics department's computer lab!",
 	"basic-information" : "Every student with a major or minor in physics is eligible to use this computer lab. To do so, you will first need to create a computer pool account. As a prerequisite, you need a university TIK account.",
-	"additional-information" : "If you need a special activation (e.g. because physics is your minor only) or if you have any questions, feel free to contact the computer lab administrators in the room next door or email us at <span class=\"email\">support@physcip.uni-stuttgart.de</span>",
+	"additional-information" : "If you need a special activation (e.g. because physics is your minor only) or if you have any questions, feel free to contact the computer lab administrators in the room next door or email us at <a href=\"mailto:support@physcip.uni-stuttgart.de\" class=\"email\">support@physcip.uni-stuttgart.de</span>",
 	"home-action-register-content" : "You don't have a computer lab account yet? If you're studying physics, you can create a new account here.",
 	"home-action-resetpw-content" : "Forgot your password? Don't worry, just enter your TIK account credentials in order to reset your computer lab password.",
 	"tik-username" : "TIK Username",

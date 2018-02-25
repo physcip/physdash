@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+	height: 100vh;
 	font-family: Helvetica, sans-serif;
 }
 
@@ -8,63 +9,106 @@ body {
  */
 #header {
 	display: flex;
-	justify-content: left;
-	align-items: center;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	align-content: center;
 	top: 0;
-	width: 100vw;
-	background: linear-gradient(to top right, #00beff, #004191);
+	background: #004191;
 }
 
-#header #cip_logo {
+#header #cip_logo, #header #cip_logo_small {
 	display: inline-block;
 	height: 50px;
 	padding: 7px;
 	cursor: pointer;
 }
 
+#header #cip_logo_small {
+	display: none;
+}
+
 #header ul {
 	list-style-type: none;
-	display: inline-block;
+	display: flex;
+	flex-wrap: wrap;
 	margin: 0;
-	padding-top: 5px;
+	align-content: center;
 }
 
 #header li {
-	display: inline-block;
+	display: block;
 	color: #ffffff;
 	margin-right:20px;
+	margin-top: 5px;
+	padding: 6px;
 	cursor: pointer;
 	font-size: 14pt;
 	font-weight: bold;
 }
 
 #header #langflags {
-	float: right;
-	margin: 0;
 	margin-left: auto;
 }
 
 #header #langflags li img {
-	border: 2px solid #232323;
+	border: 2px solid #ffffff;
 	border-radius: 3px;
 	height: 30px;
 }
+
+@media screen and (max-width: 950px) {
+	#header #cip_logo {
+		display: none;
+	}
+
+	#header #cip_logo_small {
+		display: inline-block;
+		margin: 0 auto;
+	}
+
+	#header #mainmenu {
+		justify-content: center;
+	}
+
+	#header #langflags {
+		margin: auto;
+	}
+}
+
 
 /*
  * Content
  */
 #content {
-	width: 70vw;
-	margin: 0 auto;
 	color: #232323;
 }
 
 #content .email {
-	color: #004191;
+	color: #ffffff;
+}
+
+#content #home-info {
+	color: #ffffff;
+	background: linear-gradient(to top, #00beff, #004191);
+	padding-top: 10px;
+	padding-bottom: 40px;
+}
+
+#content #home-info-text {
+	width: 70vw;
+	margin: 0 auto;
+	font-size: 1.2em;
+}
+
+#content #home-info h1 {
+	margin: 0;
+	padding-top: 10px;
 }
 
 #content #home-actions {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	margin-top: 40px;
 }
@@ -77,6 +121,7 @@ body {
 	background: #00beff;
 	border-radius: 50%;
 	margin-right: 50px;
+	margin-bottom: 50px;
 	text-align: left;
 	cursor: pointer;
 	transition: background 0.2s;
@@ -129,6 +174,28 @@ body {
 #content table tr td:first-child {
 	text-align: right;
 }
+
+@media screen and (max-width: 500px) {
+	#content .home-action-circle {
+		min-width: 280px;
+		width: 280px;
+		height: 280px;
+		margin-left: 15px;
+		margin-right: 15px;
+		margin-bottom: 30px;
+	}
+
+	#content .home-action .home-action-head {
+		font-size: 12pt;
+	}
+
+	#content .home-action .home-action-content {
+		color: #ffffff;
+		font-size: 10pt;
+		margin-top: 5px;
+	}
+}
+
 
 /*
  * Form element boxes and content (buttons, text fields)

@@ -89,7 +89,7 @@ function i18n(namespace, id) {
 }
 
 /*
- * Conent Page Management
+ * Content Page Management
  */
 function loadContentPage(page) {
 	var req = new XMLHttpRequest();
