@@ -3,16 +3,16 @@
 	<div class="form-element-explanation" data-i18n="tik-register-explanation"></div>
 
 	<form class="tik-form">
-		<table>
-			<tr>
-				<td data-i18n="tik-username"></td>
-				<td><input class="tik-form-username" type="text" placeholder="st123456" /></td>
-			</tr>
-			<tr>
-				<td data-i18n="tik-password"></td>
-				<td><input class="tik-form-password" type="password" /></td>
-			</tr>
-		</table>
+		<div class="form-table">
+			<div class="form-row">
+				<div class="form-col-label" data-i18n="tik-username"></div>
+				<div class="form-col-input"><input class="tik-form-username" type="text" placeholder="st123456" /></div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-label" data-i18n="tik-password"></div>
+				<div class="form-col-input"><input class="tik-form-password" type="password" /></div>
+			</div>
+		</div>
 
 		<input type="submit" data-i18n="tik-submit">
 	</form>
@@ -23,32 +23,37 @@
 	<div class="form-element-explanation" data-i18n="new-account-data-explanation"></div>
 
 	<form class="new-account-form">
-		<table>
-			<tr>
-				<td data-i18n="new-account-username"></td>
-				<td><input class="new-account-username" type="text" disabled/></td>
-			</tr>
-			<tr>
-				<td data-i18n="new-account-password-1"></td>
-				<td><input class="new-account-password-1" type="password" /></td>
-			</tr>
-			<tr>
-				<td data-i18n="new-account-password-2"></td>
-				<td><input class="new-account-password-2" type="password" /></td>
-			</tr>
-			<tr>
-				<td data-i18n="new-account-email"></td>
-				<td><input class="form-email-component new-account-email-localpart" type="text" /> @
-				<input class="form-email-component  new-account-email-domain" type="text" /></td>
-			</tr>
-			<tr>
-				<td data-i18n="new-account-language"></td>
-				<td class="new-account-locale">
+		<div class="form-table">
+			<div class="form-row">
+				<div class="form-col-label" data-i18n="new-account-username"></div>
+				<div class="form-col-input"><input class="new-account-username" type="text" disabled/></div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-label" data-i18n="new-account-password-1"></div>
+				<div class="form-col-input"><input class="new-account-password-1" type="password" /></div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-label" data-i18n="new-account-password-2"></div>
+				<div class="form-col-input"><input class="new-account-password-2" type="password" /></div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-label" data-i18n="new-account-email"></div>
+				<div class="form-col-input">
+					<div class="form-email">
+						<input class="form-email-component new-account-email-localpart" type="text" />
+						<div>&nbsp;@&nbsp;</div>
+						<input class="form-email-component  new-account-email-domain" type="text" />
+					</div>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-col-label" data-i18n="new-account-language"></div>
+				<div class="form-col-input new-account-locale">
 					<img class="new-account-localebutton new-account-localebutton-selected" data-locale="de" src="img/locale-de.svg"></img>
 					<img class="new-account-localebutton" data-locale="en" src="img/locale-en.svg"></img>
-				</td>
-			</tr>
-		</table>
+				</div>
+			</div>
+		</div>
 
 		<input type="submit" data-i18n="new-account-submit">
 	</form>
