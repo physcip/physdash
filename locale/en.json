@@ -13,7 +13,7 @@
 	"tik-register-explanation" : "We use your TIK account credentials to verify that you're eligible to create an account in the computer lab. This won't modfiy your TIK account.",
 	"tik-resetpw-explanation" : "We use your TIK account credentials to verify your identity. The computer lab password can only be reset with the correct TIK account password. This won't modfiy your TIK account.",
 	"error-messages" : {
-		"ip" : "You are not allowed to access account management servers from your IP address. Please use a computer inside the computer lab. If this error occurs while you're using a computer in the lab, please notify the administrators.",
+		"ip" : "You are not allowed to access account management servers from your IP address. Please use a device inside the university network (e.g. a WiFi device in the eduroam network, a computer in the computer lab or a device connected to the university's VPN). If this error occurs while your device is inside the university network, please notify the administrators.",
 		"password" : "Your TIK account password is invalid, please try again.",
 		"input" : "Invalid input, please enter both TIK account username and password and make sure your username has the format \"stXXXXXX\" (or similar).",
 		"user" : "Invalid TIK account username. Please make sure to enter an existing username in the format \"stXXXXXX\" (or similar).",

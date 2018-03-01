@@ -13,7 +13,7 @@
 	"tik-register-explanation" : "Wir benötigen deine TIK-Zugangsdaten um zu überprüfen, ob du diesen CIP-Pool verwenden darfst. Dein TIK-Account wird nicht verändert.",
 	"tik-resetpw-explanation" : "Wir benötigen deine TIK-Zugangsdaten um deine Identität zu überprüfen. Nur mit richtigem TIK-Account-Passwort kannst du dein CIP-Pool-Passwort ändern. Dein TIK-Account wird nicht verändert.",
 	"error-messages" : {
-		"ip" : "Die Benutzerverwaltungs-Server können von deiner IP-Adresse aus nicht verwendet werden. Bitte benutze einen Computer im CIP-Pool. Wenn dieser Fehler auftritt, obwohl du einen Computer in CIP-Pool verwendest, benachrichtige bitte die Administratoren.",
+		"ip" : "Die Benutzerverwaltungs-Server können von deiner IP-Adresse aus nicht verwendet werden. Bitte benutze ein Gerät im Uni-Netz (z.B. ein Gerät im eduroam-WLAN-Netzwerk, einen Computer im CIP-Pool oder ein per Uni-VPN verbundenes Gerät). Wenn dieser Fehler auftritt, obwohl dein Gerät im Uni-Netz ist, benachrichtige bitte die Administratoren.",
 		"password" : "Dein TIK-Account-Passwort stimmt nicht, bitte versuche es noch einmal.",
 		"input" : "Ungütlige Eingabe, bitte gib sowohl Benutzername als auch Passwort deines TIK-Accounts an und stelle sicher, dass dein Benutzername die Form \"stXXXXXX\" (oder vergleichbar) hat.",
 		"user" : "Ungütliger TIK-Benutzername. Bitte gib einen existierenden Benutzernamen in der Form \"stXXXXXX\" (oder vergleichbar) an.",
