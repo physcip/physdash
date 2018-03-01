@@ -1,11 +1,14 @@
 {
 	"register" : "Create Account",
 	"resetpw" : "Reset Password",
+	"faq" : "FAQ",
+	"faq-unabbreviated" : "Frequently Asked Questions",
 	"welcome" : "Welcome to the Physics department's computer lab!",
 	"basic-information" : "Every student with a major or minor in physics is eligible to use this computer lab. To do so, you will first need to create a computer pool account. As a prerequisite, you need a university TIK account.",
-	"additional-information" : "If you need a special activation (e.g. because physics is your minor only) or if you have any questions, feel free to contact the computer lab administrators in the room next door or email us at <a href=\"mailto:support@physcip.uni-stuttgart.de\" class=\"email\">support@physcip.uni-stuttgart.de</span>",
+	"additional-information" : "If you need a special activation (e.g. because physics is your minor only) or if you have any questions, feel free to contact the computer lab administrators in the room next door or email us at <a href=\"mailto:support@physcip.uni-stuttgart.de\" class=\"email\">support@physcip.uni-stuttgart.de</a>",
 	"home-action-register-content" : "You don't have a computer lab account yet? If you're studying physics, you can create a new account here.",
 	"home-action-resetpw-content" : "Forgot your password? Don't worry, just enter your TIK account credentials in order to reset your computer lab password.",
+	"home-action-faq-content" : "How to print? How to change the keyboard layout? Get answers to common questions and find out how to contact the administrators.",
 	"tik-username" : "TIK Username",
 	"tik-password" : "TIK Password",
 	"tik-submit" : "Check",
@@ -38,5 +41,6 @@
 	"new-account-submit" : "Create Account",
 	"new-account-language" : "Account Language",
 	"success-header" : "Success!",
-	"success-dialog-ok" : "OK"
+	"success-dialog-ok" : "OK",
+	"faq-introduction" : "If you can't find your question in the list below, feel free to contact the administrators. You can often find one of us in the room next door, just knock! You can also always reach us at <a href=\"mailto:support@physcip.uni-stuttgart.de\" class=\"email\">support@physcip.uni-stuttgart.de</a>."
 }
