@@ -33,14 +33,13 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0;
-	align-content: center;
+	align-items: center;
 }
 
 #header li {
 	display: block;
 	color: #ffffff;
 	margin-right:20px;
-	margin-top: 5px;
 	padding: 6px;
 	cursor: pointer;
 	font-size: 14pt;
