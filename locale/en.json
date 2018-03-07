@@ -25,6 +25,7 @@
 		"password-length" : "Your password is too short.",
 		"not-allowed" : "You do not appear to be a physics student. If you think you are eligible for an account anyway, please contact the computer lab administrators.",
 		"already-exists" : "You have already registered an account before. In case you forgot your password, please use \"Reset Password\". If you have problems with your account, please contact the computer lab administrators.",
+		"pwchange-failed" : "Could not reset your password. Please make sure that you already have an account in this computer lab! If you think this error keeps occuring mistakenly, please notify the computer lab administrators.",
 		"other" : "An unknown error occured. If this keeps happening, please notify the computer lab administrators. Error: "
 	},
 	"new-password" : "New Password",

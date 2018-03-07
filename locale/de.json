@@ -25,6 +25,7 @@
 		"password-length" : "Dein Passwort ist zu kurz.",
 		"not-allowed" : "Du scheinst kein Physik-Student zu sein. Falls du dennoch berechtigt bist, einen Account zu beantragen, dann wende dich an die CIP-Pool-Administratoren.",
 		"already-exists" : "Du hast dich bereits zuvor registriert. Falls du dein Passwort vergessen hast, verwende die Funktion \"Password Zurücksetzen\". Bei Problemen mit deinem Account, wende dich an die CIP-Pool-Administratoren.",
+		"pwchange-failed" : "Passwortänderung fehlgeschlagen. Stelle sicher, dass du einen Account im diesem CIP-Pool hast! Sollte dieser Fehler mehrmals fälschlicherweise auftreten, benachrichtige bitte die CIP-Pool-Administratoren.",
 		"other" : "Ein unbekannter Fehler trat auf. Wenn dieser Fehler mehrmals auftritt, benachrichtige bitte die CIP-Pool-Administratoren. Fehler: "
 	},
 	"new-password" : "Neues Password",

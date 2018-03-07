@@ -202,6 +202,8 @@ function getPhysregErrorDescription(errormsg) {
 		return i18n("error-messages", "not-allowed");
 	else if (errormsg == "USER_ALREADY_EXISTS")
 		return i18n("error-messages", "already-exists");
+	else if (errormsg == "PHYSCIP_PW_CHANGE_FAILED")
+		return i18n("error-messages", "pwchange-failed");
 	else
-		return i18n("error-messages", "other") + res.errormsg;
+		return i18n("error-messages", "other") + errormsg;
 }
