@@ -91,26 +91,11 @@ function i18n(namespace, id) {
 /*
  * Content Page Management
  */
+// Redirect user to http://[HOST:PORT]/?page=PAGE_NAME
+// `page` GET parameter will be evaluated when content is loaded
 function loadContentPage(page) {
-	var req = new XMLHttpRequest();
-
-	// Workaround: Use random token string to make
-	// sure browser doesn't cache content page
-	var token = Math.random().toString(36).substring(7);
-	req.open("GET", "content/" + page + ".html?token=" + token, true);
-
-	req.onload = function() {
-		if (req.status == 200) {
-			document.getElementById("content").innerHTML = req.responseText;
-			addContentLinks();
-			updateContentSelectors(page);
-
-			var event = new CustomEvent("ContentPageLoaded", { detail : { page : page } });
-			document.getElementById("content").dispatchEvent(event);
-		}
-	};
-
-	req.send();
+	var url = new URL(window.location.href);
+	window.location.href = url.origin + "?page=" + page;
 }
 
 // Underline correct `content-selector` element in header
@@ -138,8 +123,31 @@ function addContentLinks() {
 	});
 }
 
+// Evaluate `page` GET parameter and load corresponding content page
 document.addEventListener("DOMContentLoaded", function() {
-	loadContentPage("home");
+	var url = new URL(window.location.href);
+	var page = url.searchParams.get("page") || "home";
+
+	var req = new XMLHttpRequest();
+
+	// Workaround: Use random token string to make
+	// sure browser doesn't cache content page
+	var token = Math.random().toString(36).substring(7);
+	req.open("GET", "content/" + page + ".html?token=" + token, true);
+
+	req.onload = function() {
+		if (req.status == 200) {
+			document.getElementById("content").innerHTML = req.responseText;
+			addContentLinks();
+			updateContentSelectors(page);
+
+			// Dispatch "ContentPageLoaded" event - handled by content page-specific JS code
+			var event = new CustomEvent("ContentPageLoaded", { detail : { page : page } });
+			document.getElementById("content").dispatchEvent(event);
+		}
+	};
+
+	req.send();
 });
 
 /*
