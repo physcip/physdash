@@ -95,7 +95,8 @@ function i18n(namespace, id) {
 // `page` GET parameter will be evaluated when content is loaded
 function loadContentPage(page) {
 	var url = new URL(window.location.href);
-	window.location.href = url.origin + "?page=" + page;
+	url.searchParams.set("page", page);
+	window.location.href = url.toString();
 }
 
 // Underline correct `content-selector` element in header
