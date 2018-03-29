@@ -1,0 +1,6 @@
+[submodule "physfaq"]
+	path = physfaq
+	url = https://github.com/physcip/physfaq
+[submodule "github-markdown-css"]
+	path = github-markdown-css
+	url = https://github.com/sindresorhus/github-markdown-css

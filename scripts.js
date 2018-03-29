@@ -10,7 +10,7 @@ var PHYSREG_API_BASE = "https://www.physcip.uni-stuttgart.de/physreg";
 function loadLocales(cb) {
 	LOCALEIDS.forEach(function(id) {
 		var req = new XMLHttpRequest();
-		req.open("GET", "locale/" + id + ".json" , true);
+		req.open("GET", "locale/" + id + ".json", true);
 
 		req.onload = function() {
 			if (req.status == 200) {
@@ -25,7 +25,6 @@ function loadLocales(cb) {
 		req.send();
 	});
 }
-
 
 // Translate all strings on page
 function updateLocale() {
@@ -48,10 +47,12 @@ function onLocaleChange() {
 	updateLocale();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+// Load locales from server, add locale buttons and add content page translation callback
+function initLocalization(cb) {
 	// Load all locales
 	loadLocales(function () {
 		updateLocale();
+		cb();
 	});
 
 	// Add locale buttons
@@ -66,17 +67,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		document.getElementById("langflags").appendChild(li);
 	});
 
-	// Update i18n strings when content page ist loaded
+	// Update i18n strings when content page is loaded
 	document.getElementById("content").addEventListener("ContentPageLoaded", function() {
 		updateLocale();
 	});
-
-	// Success message ok button press callack
-	document.getElementById("success-dialog-ok").addEventListener("click", function() {
-		document.getElementById("success-message").style.visibility = "hidden";
-		loadContentPage("home");
-	});
-});
+}
 
 // Load localized string from locale JSON
 // If namespace is `null`, load from root of JSON, otherwise look inside namespace object in JSON
@@ -88,12 +83,24 @@ function i18n(namespace, id) {
 	return LOCALES[CURRENT_LOCALE][namespace][id];
 }
 
+// Localization functionality may also be used by content pages, e.g. the FAQ
+// uses this localization functionality to translate FAQ titles and articles
+// If namespace is `null`, add to root of JSON, otherwise add to namespace object in JSON
+function addTranslation(namespace, id, strings) {
+	for (var lang in strings) {
+		if (namespace === null)
+			LOCALES[lang][id] = strings[lang];
+		else
+			LOCALES[lang][namespace][id] = strings[lang];
+	}
+}
+
 /*
  * Content Page Management
  */
-// Redirect user to http://[HOST:PORT]/?page=PAGE_NAME
+// Redirect user to http://[HOST:PORT]/path_to_index.html?page=PAGE_NAME
 // `page` GET parameter will be evaluated when content is loaded
-function loadContentPage(page) {
+function switchContentPage(page) {
 	var url = new URL(window.location.href);
 	url.searchParams.set("page", page);
 	window.location.href = url.toString();
@@ -119,13 +126,13 @@ function addContentLinks() {
 
 	Array.from(links).forEach(function(link) {
 		link.onclick = function() {
-			loadContentPage(link.dataset.contentpage);
+			switchContentPage(link.dataset.contentpage);
 		};
 	});
 }
 
 // Evaluate `page` GET parameter and load corresponding content page
-document.addEventListener("DOMContentLoaded", function() {
+function loadContentPage() {
 	var url = new URL(window.location.href);
 	var page = url.searchParams.get("page") || "home";
 
@@ -149,15 +156,16 @@ document.addEventListener("DOMContentLoaded", function() {
 	};
 
 	req.send();
-});
+}
 
 /*
- * Action successful message
+ * Entry point - Load locales and then content page *afterwards*
  */
-function showSuccessMessage() {
-	document.getElementById("success-message").style.visibility = "visible";
-	document.getElementById("success-dialog-ok").focus();
-}
+document.addEventListener("DOMContentLoaded", function() {
+	initLocalization(function() {
+		loadContentPage();
+	});
+});
 
 /*
  * Physreg API access

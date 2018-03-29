@@ -34,6 +34,22 @@ function makeSectionComplete(elem) {
 }
 
 /*
+ * Action successfull message
+ */
+function showSuccessMessage() {
+	document.getElementById("success-message").style.visibility = "visible";
+	document.getElementById("success-dialog-ok").focus();
+}
+
+// Success message ok button press callack
+document.addEventListener("DOMContentLoaded", function() {
+	document.getElementById("success-dialog-ok").addEventListener("click", function() {
+		document.getElementById("success-message").style.visibility = "hidden";
+		loadContentPage("home");
+	});
+});
+
+/*
  * Error messages
  */
 function makeSectionError(elem, message) {
