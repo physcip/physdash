@@ -22,6 +22,8 @@ function removeLoadingAnimation(elem) {
  * Completed sections
  */
 function makeSectionComplete(elem) {
+	removeLoadingAnimation(elem);
+
 	var completeTick = document.createElement("div");
 	completeTick.classList.add("complete-tick");
 	completeTick.innerHTML = "&#10004;";
@@ -52,9 +54,13 @@ document.addEventListener("DOMContentLoaded", function() {
 /*
  * Error messages
  */
-function makeSectionError(elem, message) {
+function makeSectionError(elem, errorid) {
+	removeLoadingAnimation(elem);
+
 	var errorMessage = document.createElement("div");
-	errorMessage.textContent = message;
+	errorMessage.textContent = i18n("error-messages", errorid);
+	errorMessage.dataset.i18n_namespace = "error-messages";
+	errorMessage.dataset.i18n = errorid;
 	errorMessage.classList.add("form-element-error-message");
 
 	var errorSection = document.createElement("div");
@@ -98,16 +104,15 @@ function onTIKSubmit(successCallback) {
 			rususer : username,
 			ruspw : password
 		}, function(res) {
-			removeLoadingAnimation(tikCredentialsElem);
 			if (res.error == false) {
 				makeSectionComplete(tikCredentialsElem);
 				successCallback();
 			} else {
-				makeSectionError(tikCredentialsElem, getPhysregErrorDescription(res.errormsg));
+				makeSectionError(tikCredentialsElem, getPhysregErrorId(res.errormsg));
 			}
 		}, function() {
 			removeLoadingAnimation(tikCredentialsElem);
-			makeSectionError(tikCredentialsElem, i18n("error-messages", "timeout"));
+			makeSectionError(tikCredentialsElem, "timeout");
 		});
 	}
 }
@@ -146,26 +151,30 @@ function physregAction(name, data, cb, cbTimeout) {
 
 /*
  * Physreg API error handling
- * Get error messages from strings defined in physreg protocol (see `doc/physreg_protocol.md`)
+ * Get error ids from strings defined in physreg protocol (see `doc/physreg_protocol.md`)
  * Handles all errors of type "ipcheck errors", "Common errors", "TIK errors", "Physcip errors",
  * "createuser errors", "resetpw errors" that are the client's fault. Returns generic error message
  * if error string wasn't found.
+ * Error ids are just locale ids for the corresponding error message in the `error-messages` namespace
+ * of the locale JSON.
  */
-function getPhysregErrorDescription(errormsg) {
+function getPhysregErrorId(errormsg) {
 	if (errormsg == "IP_NOT_ALLOWED")
-		return i18n("error-messages", "ip");
+		return "ip";
 	else if (errormsg == "RUS_PW_INVALID")
-		return i18n("error-messages", "password");
+		return "password";
 	else if (errormsg == "PHYSCIP_INVALID_INPUT")
-		return i18n("error-messages", "input");
+		return "input";
 	else if (errormsg == "RUS_USER_INVALID")
-		return i18n("error-messages", "user");
+		return "user";
 	else if (errormsg == "USER_NOT_ALLOWED")
-		return i18n("error-messages", "not-allowed");
+		return "not-allowed";
 	else if (errormsg == "USER_ALREADY_EXISTS")
-		return i18n("error-messages", "already-exists");
+		return "already-exists";
 	else if (errormsg == "PHYSCIP_PW_CHANGE_FAILED")
-		return i18n("error-messages", "pwchange-failed");
-	else
-		return i18n("error-messages", "other") + errormsg;
+		return "pwchange-failed";
+	else {
+		console.log("Unknown errormsg from physreg API: " + errormsg);
+		return "other";
+	}
 }

@@ -27,3 +27,8 @@ Make sure `PHYSREG_API_BASE` in `script.js` is configured to point to a working 
 ```JavaScript
 var PHYSREG_API_BASE = "https://www.physcip.uni-stuttgart.de/physreg";
 ```
+
+Also make sure `QUOTA_API_BASE` in `content/quota.js` is configured to point to a working instance of [cups_quota](https://github.com/physcip/cups_quota):
+```JavaScript
+var QUOTA_API_BASE = "https://www.physcip.uni-stuttgart.de/quota";
+```

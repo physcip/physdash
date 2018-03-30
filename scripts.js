@@ -32,12 +32,17 @@ function updateLocale() {
 
 	for (var i = 0; i < elem.length; ++i) {
 		if ("dataset" in elem[i] && "i18n" in elem[i].dataset) {
+			// Use namespace in JSON if data-i18n_namespace is provided
+			var namespace = null;
+			if ("i18n_namespace" in elem[i].dataset)
+				namespace = elem[i].dataset.i18n_namespace;
+
 			// Input elements: Translate button value
 			if (elem[i].tagName.toLowerCase() == "input")
-				elem[i].value = LOCALES[CURRENT_LOCALE][elem[i].dataset.i18n];
+				elem[i].value = i18n(namespace, elem[i].dataset.i18n);
 			// div, span, li, td, ...: Just translate innerHTML content
 			else
-				elem[i].innerHTML = LOCALES[CURRENT_LOCALE][elem[i].dataset.i18n];
+				elem[i].innerHTML = i18n(namespace, elem[i].dataset.i18n);
 		}
 	}
 }

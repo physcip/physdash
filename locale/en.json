@@ -28,6 +28,8 @@
 		"not-allowed" : "You do not appear to be a physics student. If you think you are eligible for an account anyway, please contact the computer lab administrators.",
 		"already-exists" : "You have already registered an account before. In case you forgot your password, please use \"Reset Password\". If you have problems with your account, please contact the computer lab administrators.",
 		"pwchange-failed" : "Could not reset your password. Please make sure that you already have an account in this computer lab! If you think this error keeps occuring mistakenly, please notify the computer lab administrators.",
+		"quota-timeout" : "A timeout occured while contacting the quota server. If this keeps happening, please notify the computer lab administrators.",
+		"quota-user" : "Could not find the given username. Have you ever printed before? Please make sure to enter an existing username in the format \"stXXXXXX\" (or similar).",
 		"other" : "An unknown error occured. If this keeps happening, please notify the computer lab administrators. Error: "
 	},
 	"new-password" : "New Password",
@@ -45,5 +47,9 @@
 	"new-account-language" : "Account Language",
 	"success-header" : "Success!",
 	"success-dialog-ok" : "OK",
-	"faq-introduction" : "If you can't find your question in the list below, feel free to contact the administrators. You can often find one of us in the room next door, just knock! You can also always reach us at <a href=\"mailto:support@physcip.uni-stuttgart.de\" class=\"email\">support@physcip.uni-stuttgart.de</a>."
+	"faq-introduction" : "If you can't find your question in the list below, feel free to contact the administrators. You can often find one of us in the room next door, just knock! You can also always reach us at <a href=\"mailto:support@physcip.uni-stuttgart.de\" class=\"email\">support@physcip.uni-stuttgart.de</a>.",
+	"quota-header" : "Query Printing Quota",
+	"quota-explanation" : "Please enter your username to query your leftover page quota.",
+	"quota-username" : "Username",
+	"quota-submit" : "Query"
 }

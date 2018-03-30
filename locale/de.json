@@ -28,6 +28,8 @@
 		"not-allowed" : "Du scheinst kein Physik-Student zu sein. Falls du dennoch berechtigt bist, einen Account zu beantragen, dann wende dich an die CIP-Pool-Administratoren.",
 		"already-exists" : "Du hast dich bereits zuvor registriert. Falls du dein Passwort vergessen hast, verwende die Funktion \"Password Zurücksetzen\". Bei Problemen mit deinem Account, wende dich an die CIP-Pool-Administratoren.",
 		"pwchange-failed" : "Passwortänderung fehlgeschlagen. Stelle sicher, dass du einen Account im diesem CIP-Pool hast! Sollte dieser Fehler mehrmals fälschlicherweise auftreten, benachrichtige bitte die CIP-Pool-Administratoren.",
+		"quota-timeout" : "Zeitüberschreitung beim Kontaktieren des Druckkontingent-Servers. Wenn dieser Fehler mehrmals auftritt, benachrichtige bitte die CIP-Pool-Administratoren.",
+		"quota-user" : "Konnte angegebenen Benutzername nicht finden. Hast du schon jemals gedruckt? Bitte gib einen existierenden Benutzernamen in der Form \"stXXXXXX\" (oder vergleichbar) an.",
 		"other" : "Ein unbekannter Fehler trat auf. Wenn dieser Fehler mehrmals auftritt, benachrichtige bitte die CIP-Pool-Administratoren. Fehler: "
 	},
 	"new-password" : "Neues Password",
@@ -45,5 +47,9 @@
 	"new-account-language" : "Account-Sprache",
 	"success-header" : "Aktion erfolgreich!",
 	"success-dialog-ok" : "OK",
-	"faq-introduction" : "Falls du dein Anliegen nicht in der Liste findest, kannst du jederzeit gerne die Administratoren kontaktieren. Häufig findest du jemand von uns im Raum nebenan, einfach klopfen! Ansonsten sind wir auch immer unter <a href=\"mailto:support@physcip.uni-stuttgart.de\" class=\"email\">support@physcip.uni-stuttgart.de</a> erreichbar."
+	"faq-introduction" : "Falls du dein Anliegen nicht in der Liste findest, kannst du jederzeit gerne die Administratoren kontaktieren. Häufig findest du jemand von uns im Raum nebenan, einfach klopfen! Ansonsten sind wir auch immer unter <a href=\"mailto:support@physcip.uni-stuttgart.de\" class=\"email\">support@physcip.uni-stuttgart.de</a> erreichbar.",
+	"quota-header" : "Druckkontingent abfragen",
+	"quota-explanation" : "Bitte gib deinen Benutzernamen ein, um dein Druckkontingent abzufragen.",
+	"quota-username" : "Benutzername",
+	"quota-submit" : "Abfrage"
 }
