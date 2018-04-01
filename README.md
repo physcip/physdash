@@ -32,3 +32,6 @@ Also make sure `QUOTA_API_BASE` in `content/quota.js` is configured to point to 
 ```JavaScript
 var QUOTA_API_BASE = "https://www.physcip.uni-stuttgart.de/quota";
 ```
+
+## Kiosk Mode
+Physdash's FAQ may contain links to external webpages - if users are not supposed to leave physdash, a "Kiosk Mode" can be enabled by adding the `?kioskmode=1` parameter to the query URL. This disables the FAQ entirely.

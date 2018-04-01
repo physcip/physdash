@@ -5,6 +5,7 @@ var LOCALEIDS = ["de", "en"];
 var LOCALES = {};
 var CURRENT_LOCALE = "de";
 var PHYSREG_API_BASE = "https://www.physcip.uni-stuttgart.de/physreg";
+var LOCKED_PAGES = [];
 
 // Load locales from server
 function loadLocales(cb) {
@@ -146,6 +147,12 @@ function loadContentPage() {
 	var url = new URL(window.location.href);
 	var page = url.searchParams.get("page") || "home";
 
+	// Some pages may be locked in kiosk mode
+	if (LOCKED_PAGES.includes(page)) {
+		alert("Kiosk Mode - This page is locked\nKiosk-Modus - Seite gesperrt");
+		switchContentPage("home");
+	}
+
 	var req = new XMLHttpRequest();
 
 	// Workaround: Use random token string to make
@@ -169,9 +176,24 @@ function loadContentPage() {
 }
 
 /*
+ * Kiosk Mode
+ */
+// Physdash may also be used as a kiosk application for user registration.
+// We don't want people to access the internet from that kiosk. Since the FAQ
+// can contain links to external webpages, just disable FAQ completely.
+function checkKioskMode() {
+	var url = new URL(window.location.href);
+	var kioskmode = url.searchParams.get("kioskmode") || false;
+
+	if (kioskmode)
+		LOCKED_PAGES.push("faq");
+}
+
+/*
  * Entry point - Load locales and then content page *afterwards*
  */
 document.addEventListener("DOMContentLoaded", function() {
+	checkKioskMode();
 	initLocalization(function() {
 		loadContentPage();
 	});
