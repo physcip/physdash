@@ -63,27 +63,22 @@ function makeSectionError(elem, errorid) {
 	errorMessage.dataset.i18n_namespace = "error-messages";
 	errorMessage.dataset.i18n = errorid;
 	errorMessage.classList.add("form-element-error-message");
-	elem.appendChild(errorMessage);
+	elem.getElementsByClassName("error-message-container")[0].appendChild(errorMessage);
 
 	// Error section: Adds red border to section
 	var errorSection = document.createElement("div");
 	errorSection.classList.add("form-element-error");
 	elem.appendChild(errorSection);
-
-	// Always keep submit section at the bottom
-	var submitContainer = elem.getElementsByClassName("form-submit-container");
-	if (submitContainer.length > 0)
-		elem.appendChild(submitContainer[0]);
 }
 
 function removeSectionError(elem) {
 	var errorSection = elem.getElementsByClassName("form-element-error");
 	if (errorSection.length > 0)
-		elem.removeChild(errorSection[0]);
+		errorSection[0].parentNode.removeChild(errorSection[0]);
 
 	var errorMessage = elem.getElementsByClassName("form-element-error-message");
 	if (errorMessage.length > 0)
-		elem.removeChild(errorMessage[0]);
+		errorMessage[0].parentNode.removeChild(errorMessage[0]);
 }
 
 /*

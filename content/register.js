@@ -38,12 +38,12 @@ function onNewAccountSubmit(event) {
 	removeSectionError(newAccountElem);
 
 	if (password1 != password2) {
-		makeSectionError(newAccountElem, i18n("error-messages", "passwords-mismatch"));
+		makeSectionError(newAccountElem, "passwords-mismatch");
 		return;
 	}
 
 	if (password1.length < 6) {
-		makeSectionError(newAccountElem, i18n("error-messages", "password-length"));
+		makeSectionError(newAccountElem, "password-length");
 		return;
 	}
 
@@ -73,11 +73,11 @@ function onNewAccountSubmit(event) {
 			makeSectionComplete(newAccountElem);
 			showSuccessMessage();
 		} else {
-			makeSectionError(newAccountElem, getPhysregErrorDescription(res.errormsg));
+			makeSectionError(newAccountElem, getPhysregErrorId(res.errormsg));
 		}
 	}, function() {
 		removeLoadingAnimation(newAccountElem);
-		makeSectionError(newAccountElem, i18n("error-messages", "timeout"));
+		makeSectionError(newAccountElem, "timeout");
 	});
 }
 
