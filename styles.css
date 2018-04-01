@@ -68,7 +68,7 @@ body {
 	}
 
 	#header #mainmenu {
-		justify-content: center;
+		justify-content: space-around;
 	}
 
 	#header #langflags {
@@ -210,17 +210,20 @@ body {
 	max-width: 650px;
 	width: 80vw;
 	margin: 20px;
-	padding-bottom: 60px;
 }
 
 #content .form-element input[type="text"], #content .form-element input[type="password"] {
 	width: 100%;
 }
 
+#content .form-element .form-submit-container {
+	display: flex;
+	justify-content: flex-end;
+}
+
 #content .form-element button, #content .form-element input[type="button"], #content .form-element input[type="submit"] {
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
+	display: flex;
+	margin-right: 10px;
 	text-transform: uppercase;
 	padding: 14px 30px;
 	background: #004191;
@@ -275,6 +278,12 @@ body {
 	border: 3px solid #00beff;
 }
 
+@media screen and (max-width: 500px) {
+	#content .form-element .form-submit-container {
+		justify-content: center;
+	}
+}
+
 /*
  * Responsive tables
  */
@@ -291,6 +300,12 @@ body {
 	text-align: right;
 	padding-right: 20px;
 	font-weight: bold;
+}
+
+.form-table .form-col-value {
+	flex: 1 0 180px;
+	max-width: 300px;
+	padding-right: 20px;
 }
 
 .form-table .form-col-input {
@@ -392,20 +407,29 @@ body {
 }
 
 /*
+ * Quota page
+ */
+#content #quota-result-sentence {
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+}
+
+/*
  * FAQ
  */
-#faq-articles {
+#content #faq-articles {
 	margin-top: 20px;
 	width: 70vw;
 	font-size: 16px;
 }
 
-.faq-article {
+#content .faq-article {
 	border: 1px solid #c0c0c0;
 	margin-bottom: 10px;
 }
 
-.faq-article-header {
+#content .faq-article-header {
 	font-size: 20px;
 	font-weight: bold;
 	cursor: pointer;
@@ -418,11 +442,11 @@ body {
 	user-select: none;
 }
 
-.faq-article-header:hover {
+#content .faq-article-header:hover {
 	color: #004191;
 }
 
-.faq-article-content {
+#content .faq-article-content {
 	font-size: 14px;
 	border-top: 1px solid #c0c0c0;
 	padding: 10px;

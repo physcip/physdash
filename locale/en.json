@@ -51,5 +51,12 @@
 	"quota-header" : "Query Printing Quota",
 	"quota-explanation" : "Please enter your username to query your leftover page quota.",
 	"quota-username" : "Username",
-	"quota-submit" : "Query"
+	"quota-submit" : "Query",
+	"quota-result-leftpages" : "Number of pages left",
+	"quota-result-maxquota" : "Maximum Quota",
+	"quota-result-increasedate" : "Date of next increase",
+	"quota-result-increasecount" : "Pages for next increase",
+	"quota-result-lastjob" : "Last print job",
+	"quota-printing-enabled" : "Printing is enabled :)",
+	"quota-printing-disabled" : "Sorry, printing is disabled :("
 }

@@ -44,9 +44,29 @@ function getQuota(event) {
 			if (response.error) {
 				makeSectionError(quotaElem, getQuotaErrorDescription(response.error));
 			} else {
-				removeSectionError(quotaElem);
-				// TODO: Display in e.g. table
-				alert("success: " + req.responseText);
+				var result = JSON.parse(req.responseText);
+
+				// On success: Display result in table
+				var resultSection = document.getElementsByClassName("quota-result-element")[0];
+				makeSectionActive(resultSection);
+				makeSectionComplete(quotaElem);
+
+				var nextincreaseText = new Date(result.nextincrease).toLocaleDateString(getCurrentLocale());
+				var lastjobText = new Date(result.lastjob).toLocaleDateString(getCurrentLocale());
+
+				document.getElementById("quota-result-leftpages").appendChild(document.createTextNode(result.pagequota - result.pagecount));
+				document.getElementById("quota-result-maxquota").appendChild(document.createTextNode(result.pagequota));
+				document.getElementById("quota-result-increasedate").appendChild(document.createTextNode(nextincreaseText));
+				document.getElementById("quota-result-increasecount").appendChild(document.createTextNode(result.increasecount));
+				document.getElementById("quota-result-lastjob").appendChild(document.createTextNode(lastjobText));
+
+				// Display printing enabled / disabled sentence
+				var sentence = document.getElementById("quota-result-sentence");
+				var sentence_string_i18n = "quota-printing-" + (result.pagecount > result.pagequota ? "disabled" : "enabled");
+				sentence.dataset.i18n = sentence_string_i18n;
+				sentence.innerHTML = i18n(null, sentence_string_i18n);
+				sentence.style.color = result.pagecount > result.pagequota ? "#e92918" : "#00a000";
+					
 			}
 		}
 	};

@@ -81,6 +81,15 @@ function removeSectionError(elem) {
 }
 
 /*
+ * Inactive sections
+ */
+function makeSectionActive(elem) {
+	var notReady = elem.getElementsByClassName("form-element-not-ready");
+	if (notReady.length > 0)
+		elem.removeChild(notReady[0]);
+}
+
+/*
  * TIK credentials section handler
  * Common for account registration and password reset, called from the respective
  * scripts for these content pages. The innter function that gets returned is the

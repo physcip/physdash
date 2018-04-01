@@ -100,6 +100,11 @@ function addTranslation(namespace, id, strings) {
 	}
 }
 
+// Getter-function for CURRENT_LOCALE (should not be used except for e.g. date formatting)
+function getCurrentLocale() {
+	return CURRENT_LOCALE;
+}
+
 /*
  * Content Page Management
  */

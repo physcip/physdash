@@ -1,6 +1,6 @@
 function registerTIKVerified() {
 	var newAccountForm = document.getElementsByClassName("new-account-data")[0];
-	newAccountForm.removeChild(newAccountForm.getElementsByClassName("form-element-not-ready")[0]);
+	makeSectionActive(newAccountForm);
 	var newAccountUsername = document.getElementsByClassName("new-account-username")[0];
 	var tikUsername = document.getElementsByClassName("tik-form-username")[0].value;
 	newAccountUsername.value = tikUsername.toLowerCase();

@@ -4,7 +4,7 @@
  */
 function resetpwTIKVerified() {
 	var newPasswordForm = document.getElementsByClassName("new-password")[0];
-	newPasswordForm.removeChild(newPasswordForm.getElementsByClassName("form-element-not-ready")[0]);
+	makeSectionActive(newPasswordForm);
 	document.getElementsByClassName("new-password-1")[0].focus();
 }
 

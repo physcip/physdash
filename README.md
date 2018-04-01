@@ -4,7 +4,7 @@ Graphical account management interface for computer lab users. This is a *static
 ## Functionality
 * Create Accounts (Physreg API)
 * Reset Password (Physreg API)
-* TODO: Query printing quota (printer quota API)
+* Query printing quota (printer quota API)
 * FAQ
 
 The communication protocol with [the physreg API](https://github.com/physcip/physreg) is specified in `doc/physreg_protocol.md`.

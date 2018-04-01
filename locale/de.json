@@ -51,5 +51,12 @@
 	"quota-header" : "Druckkontingent abfragen",
 	"quota-explanation" : "Bitte gib deinen Benutzernamen ein, um dein Druckkontingent abzufragen.",
 	"quota-username" : "Benutzername",
-	"quota-submit" : "Abfrage"
+	"quota-submit" : "Abfrage",
+	"quota-result-leftpages" : "Anzahl übrige Druckseiten",
+	"quota-result-maxquota" : "Maximales Kontingent",
+	"quota-result-increasedate" : "Datum nächste Erhöhung",
+	"quota-result-increasecount" : "Seitenzahl nächste Erhöhung",
+	"quota-result-lastjob" : "Letzter Druckauftrag",
+	"quota-printing-enabled" : "Drucken ist erlaubt :)",
+	"quota-printing-disabled" : "Entschuldigung, Drucken ist deaktiviert :("
 }
