@@ -57,17 +57,23 @@ document.addEventListener("DOMContentLoaded", function() {
 function makeSectionError(elem, errorid) {
 	removeLoadingAnimation(elem);
 
+	// Error message: Adds red error message text to section
 	var errorMessage = document.createElement("div");
 	errorMessage.textContent = i18n("error-messages", errorid);
 	errorMessage.dataset.i18n_namespace = "error-messages";
 	errorMessage.dataset.i18n = errorid;
 	errorMessage.classList.add("form-element-error-message");
+	elem.appendChild(errorMessage);
 
+	// Error section: Adds red border to section
 	var errorSection = document.createElement("div");
 	errorSection.classList.add("form-element-error");
-
-	elem.appendChild(errorMessage);
 	elem.appendChild(errorSection);
+
+	// Always keep submit section at the bottom
+	var submitContainer = elem.getElementsByClassName("form-submit-container");
+	if (submitContainer.length > 0)
+		elem.appendChild(submitContainer[0]);
 }
 
 function removeSectionError(elem) {
