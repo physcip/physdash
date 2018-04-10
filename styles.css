@@ -452,6 +452,18 @@ body {
 	padding: 10px;
 }
 
+@media screen and (min-width: 1000px) {
+	#content .faq-article-content img {
+		max-width: 75%;
+	}
+}
+
+@media screen and (min-width: 1400px) {
+	#content .faq-article-content img {
+		max-width: 50%;
+	}
+}
+
 /*
  * Error messages
  */
