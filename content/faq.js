@@ -24,7 +24,11 @@ function loadFAQArticle(contentElement) {
 
 		req.onload = function() {
 			if (req.status == 200) {
-				articleContents[locale] = marked(req.responseText);
+				var articlePath = articleFiles[locale].substr(0, articleFiles[locale].lastIndexOf("/") + 1);
+
+				articleContents[locale] = marked(req.responseText, {
+					baseUrl : PHYSFAQ_BASE + "/" + articlePath
+				});
 
 				// All locales successfully loaded - callback
 				if (Object.keys(articleFiles).length == Object.keys(articleContents).length)
