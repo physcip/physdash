@@ -189,6 +189,13 @@ body {
 	}
 }
 
+/* Quick hack: We don't want three circles in the first row and one in the second row, so resize #home-actions
+   if screen is not wide enough to display all four circles in a single row. Remove if number of circles changes. */
+@media screen and (max-width: 1620px) {
+	#content #home-actions {
+		max-width: 800px;
+	}
+}
 
 /*
  * Form element boxes and content (buttons, text fields)
